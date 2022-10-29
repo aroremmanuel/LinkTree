@@ -58,9 +58,13 @@ body {
 
 #footer-container {
     display: flex;
-    justify-content: space-between;
     margin-top: 3%;
     padding: 5px;
+    flex-wrap: wrap;
+}
+
+.footer--content {
+    margin: auto;
 }
 
 .footer-logo {
