@@ -1,16 +1,36 @@
 import './App.css';
-import Profile from './components/profile.js';
-import Link from './components/link.js';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Linktree from './pages/linktree.js';
+import Error from './components/error.js'
 import Footer from './components/footer';
+import Contact from './pages/contact.js';
+
 
 function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Linktree />,
+    },
+    {
+      path: "/contact",
+      element: <Contact />,
+    },
+    {
+      path: "*",
+      element: <Error />,
+    }
+  ]);
+
   return (
-    <div>
-      <div id="page--container">
-        <Profile />
-        <Link />
-        <Footer />
-      </div>
+    <div id='page--container'>
+      <RouterProvider router={router} />
+      <Footer />
     </div>
   );
 }
